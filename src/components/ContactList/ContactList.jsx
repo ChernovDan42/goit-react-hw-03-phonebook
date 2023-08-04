@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { ContactItem } from "./ContactItem";
 import css from './css/List.module.css'
 
-export function ContactList ({ contacts,onClick } ){
+export function ContactList ({ contacts,handleDeleteContact } ){
   
         
         return (
@@ -11,7 +11,7 @@ export function ContactList ({ contacts,onClick } ){
                 {
                    contacts.map(el => {
                     return (
-                        <ContactItem key={el.id} name={el.name} number={el.number}  onClick={()=>onClick(el.id) } />
+                        <ContactItem key={el.id} name={el.name} number={el.number} id={el.id} handleDeleteContact={handleDeleteContact} />
                     )
               
                 })}

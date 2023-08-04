@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import css from "./css/Item.module.css"
 
-export function ContactItem ({name,number,onClick}){
+export function ContactItem ({name,number,id,handleDeleteContact}){
 
 
     return (
@@ -9,7 +9,7 @@ export function ContactItem ({name,number,onClick}){
             <p style={{
                 display:"inline-block"
             }}>{name}: {number}</p>
-            <button type="button" className={css.btn} name={name} onClick={onClick}>Delete</button>
+            <button type="button" className={css.btn} name={name} onClick={()=>handleDeleteContact(id)}>Delete</button>
             </li>
         )
 }
@@ -18,7 +18,7 @@ export function ContactItem ({name,number,onClick}){
 ContactItem.propTypes = {
     name: PropTypes.string.isRequired,
     number: PropTypes.string.isRequired,
-    
-    onClick:PropTypes.func.isRequired
+    id:PropTypes.string.isRequired,
+    handleDeleteContact:PropTypes.func.isRequired
 
 }
